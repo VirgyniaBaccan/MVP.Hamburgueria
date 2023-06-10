@@ -1,9 +1,10 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { StyledLoader } from "./styles"
+import { StyledLoader, StyledProduct } from "./styles"
 
-export const Product = ({filteredProducts, setProducts}) => {
-    
+
+export const Product = ({ filteredProducts, setProducts, cartList, setListCart }) => {
+
     const [isLoading, setIsLoading] = useState(true)
 
 
@@ -24,20 +25,40 @@ export const Product = ({filteredProducts, setProducts}) => {
 
     }, [])
 
+    useEffect(() => {
+        console.log(cartList)
+    }, [cartList])
+
+    const handleListCart = (product) => {
+        const checkProduct = cartList.find((element) => element.id == product.id)
+        if (checkProduct) {
+            alert('já existe')
+        } else {
+            setListCart((currentCartList) => [...currentCartList, product])
+        }
+        // checkProduct ? alert('Já existe') : setCartList((cartList) => [...cartList, product])
+    }
+
+
     return (
         <>
-                {
-                    isLoading ?
-                        <StyledLoader></StyledLoader> :
-                        filteredProducts.map((product) => <li key={product.id}>
-                            <img src={product.img}/>
-                            <h2>{product.name}</h2>
-                            <p>{product.category}</p>
-                            <p>{product.price}</p>
-                            <button>Adicionar</button>
+            {
+                isLoading ?
 
-                            </li>)
-                }
+                    <StyledLoader></StyledLoader> :
+                    filteredProducts.map((product) =>
+                        <StyledProduct key={product.id}>
+                            <div className="div__img">
+                            <img src={product.img} />
+                            </div>
+                            <div className="div__card">
+                            <h2 className="product__name">{product.name}</h2>
+                            <p className="product__category">{product.category}</p>
+                            <p className="product__price">{product.price.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}</p>
+                            <button className="product__button" onClick={() => { handleListCart(product) }}>Adicionar</button>
+                            </div>
+                        </StyledProduct>)
+            }
         </>
     )
 }
