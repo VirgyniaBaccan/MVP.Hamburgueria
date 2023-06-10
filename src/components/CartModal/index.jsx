@@ -1,49 +1,56 @@
-import { useRef, useEffect } from "react";
+// import { useRef, useEffect } from "react";
 import { StyledModal } from "./modal";
+import { useOutCLick } from "../../hooks/useOutClick";
+import { useKeyDown } from "../../hooks/useKeyDown";
+import DeleteIcon from "../../assets/Delete-Icon.svg"
 
-export const Modal = ({ setIsOpen }) => {
-    const modalRef = useRef(null);
+export const Modal = ({ setIsOpen, cartList, setListCart }) => {
 
-    useEffect(() => {
-        const handleOutclick = (event) => {
-            if (!modalRef.current?.contains(event.target)) {
-                setIsOpen(false);
-            }
-        }
+    const modalRef = useOutCLick(() => {
+        setIsOpen(false)
+    })
 
-        window.addEventListener("mousedown", handleOutclick);
+    const buttonRef = useKeyDown("Escape", (element) => {
+        element.click()
+    })
 
-        return () => {
-            window.removeEventListener("mousedown", handleOutclick);
-        }
-    }, [])
+    const sum = cartList.reduce((acc, element) => acc += element.price, 0)
 
-    const buttonRef = useRef(null);
+    const deleteProduct = (elementId) => {
+        setListCart((cartList) => cartList.filter((product) => elementId !== product.id)
+        )
+    }
 
-    useEffect(() => {
-        const handleKeydown = (event) => {
-            if (event.key === "Escape") {
-                buttonRef.current?.click();
-            }
-        }
+    const clearList = () => {
+        setListCart([])
+    }
 
-        window.addEventListener("keydown", handleKeydown);
-
-        return () => {
-            window.removeEventListener("keydown", handleKeydown);
-        }
-    }, [])
-
-    return (
-        <StyledModal role="dialog">
-            <div ref={modalRef}>
-                <button
-                    ref={buttonRef}
-                    onClick={() => setIsOpen(false)}
-                >
-                    Fechar
-                </button>
+return (
+    <StyledModal role="dialog">
+        <div className="modal" ref={modalRef}>
+            <div>
+                <h2>Carrinho de compras</h2>
+                <button ref={buttonRef} onClick={() => setIsOpen(false)}>X</button>
             </div>
-        </StyledModal>
-    );
+            <ul>
+                {cartList.map((product) =>
+                    <li key={product.id}>
+                        <img src={product.img} />
+                        <div>
+                            <h2>{product.name}</h2>
+                            <img src={DeleteIcon} onClick={() => { deleteProduct(product.id) }} />
+                        </div>
+                    </li>
+                )}
+            </ul>
+            <div>
+                <div>
+                    <h3>Total</h3>
+                    <h3>{sum.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h3>
+                </div>
+                <button onClick={() => clearList()}>Remover todos</button>
+            </div>
+        </div>
+    </StyledModal>
+);
 }

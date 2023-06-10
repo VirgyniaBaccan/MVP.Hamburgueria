@@ -5,8 +5,9 @@ export const StyledHeader = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* position: sticky; */
+    position: sticky;
     width: 100%;
+    max-width: 100vw;
     height: 9.5rem;
     top: 0rem;
     padding: 1rem;

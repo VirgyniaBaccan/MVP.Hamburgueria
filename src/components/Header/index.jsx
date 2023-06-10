@@ -5,8 +5,8 @@ import { StyledHeader } from './header'
 import { StyledSearchInput } from './InputSearch/input.js'
 import { StyledForm } from './form'
 
-export const Header = ({setInputSearch, setIsOpen}) => {
-    
+export const Header = ({ setInputSearch, setIsOpen }) => {
+
     const handleSubmit = (event) => {
         event.preventDefault()
     }
