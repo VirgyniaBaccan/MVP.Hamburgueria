@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledLoader = styled.div`
-border: 8px solid #f3f3f3; 
+border: .5rem solid #f3f3f3; 
   border-top: 8px solid var(--color-primary);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   animation: spin 1s linear infinite;
   margin: 0 auto;
   margin-top: 30%;
@@ -20,13 +20,17 @@ export const StyledProduct = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
-  height: 346px;
-  flex-basis: 300px;
+  width: 18.75rem;
+  height: 21.625rem;
+  flex-basis: 18.75rem;
   flex-shrink: 0;
   background: #FFFFFF;
-  border: 2px solid var(--color-grey-100);
-  border-radius: 5px;
+  border: .125rem solid var(--color-grey-100);
+  border-radius: .3125rem;
+
+  :hover {
+    border: .125rem solid var(--color-primary);
+  }
   
 .div__img {
   display: flex;
@@ -39,8 +43,8 @@ export const StyledProduct = styled.li`
 .div__img > img {
   display: flex;
   align-self: center;
-  width: 156px;
-  height: 156px;
+  width: 9.75rem;
+  height: 9.75rem;
   background-color: #f5f5f5;
 }
 
@@ -54,23 +58,23 @@ export const StyledProduct = styled.li`
 
 .product__name {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
   color: #333333;
 }
 
 .product__category {
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
+  font-size: .75rem;
+  line-height: 1rem;
   color: #828282;
 }
 
 .product__price {
   font-weight: 600;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: .875rem;
+  line-height: 1.5rem;
   color: var(--color-primary);
 }
 
@@ -79,20 +83,26 @@ export const StyledProduct = styled.li`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 0px 20px;
-  gap: 10px;
-  width: 106px;
-  height: 40px;
+  padding: 0rem 1.25rem;
+  gap: .625rem;
+  width: 6.625rem;
+  height: 2.5rem;
 
   background: var(--color-grey-100);
-  border: 2px solid var(--color-grey-100);
-  border-radius: 8px;
+  border: .125rem solid var(--color-grey-100);
+  border-radius: .5rem;
 
   font-weight: 600;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: .875rem;
+  line-height: 1.0625rem;
   color: #FFFFFF;
 
-  letter-spacing: 0.8px;
+  letter-spacing: .05rem;
+}
+
+.product__button:hover {
+  background: var(--color-primary);
+  color: #ffff;
+  border: .125rem solid var(--color-primary);
 }
 `

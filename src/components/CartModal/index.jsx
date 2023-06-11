@@ -3,6 +3,8 @@ import { StyledModal } from "./modal";
 import { useOutCLick } from "../../hooks/useOutClick";
 import { useKeyDown } from "../../hooks/useKeyDown";
 import DeleteIcon from "../../assets/Delete-Icon.svg"
+import { StyledDiv, StyledImage, StyledProductDiv, StyledProduct } from "./cartProduct";
+import { StyledBottonDiv, StyledTotalDiv, StyledCartButton } from "./cartTotal";
 
 export const Modal = ({ setIsOpen, cartList, setListCart }) => {
 
@@ -25,32 +27,34 @@ export const Modal = ({ setIsOpen, cartList, setListCart }) => {
         setListCart([])
     }
 
-return (
-    <StyledModal role="dialog">
-        <div className="modal" ref={modalRef}>
-            <div>
-                <h2>Carrinho de compras</h2>
-                <button ref={buttonRef} onClick={() => setIsOpen(false)}>X</button>
-            </div>
-            <ul>
-                {cartList.map((product) =>
-                    <li key={product.id}>
-                        <img src={product.img} />
-                        <div>
-                            <h2>{product.name}</h2>
-                            <img src={DeleteIcon} onClick={() => { deleteProduct(product.id) }} />
-                        </div>
-                    </li>
-                )}
-            </ul>
-            <div>
-                <div>
-                    <h3>Total</h3>
-                    <h3>{sum.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h3>
+    return (
+        <StyledModal role="dialog">
+            <div className="modal" ref={modalRef}>
+                <div className="cart__top-div">
+                    <h2 className="cart__title">Carrinho de compras</h2>
+                    <button className="close__button" ref={buttonRef} onClick={() => setIsOpen(false)}>X</button>
                 </div>
-                <button onClick={() => clearList()}>Remover todos</button>
+                <ul className="cart__list">
+                    {cartList.map((product) =>
+                        <StyledProduct key={product.id}>
+                            <StyledDiv>
+                            <StyledImage src={product.img} />
+                            </StyledDiv>
+                            <StyledProductDiv>
+                                <h2 className="product__name">{product.name}</h2>
+                                <img className="button__deleteProduct" src={DeleteIcon} onClick={() => { deleteProduct(product.id) }} />
+                            </StyledProductDiv>
+                        </StyledProduct>
+                    )}
+                </ul>
+                <StyledBottonDiv>
+                    <StyledTotalDiv>
+                        <h3 className="cart__total">Total</h3>
+                        <h3 className="cart__value">{sum.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</h3>
+                    </StyledTotalDiv>
+                    <StyledCartButton onClick={() => clearList()}>Remover todos</StyledCartButton>
+                </StyledBottonDiv>
             </div>
-        </div>
-    </StyledModal>
-);
+        </StyledModal>
+    );
 }
