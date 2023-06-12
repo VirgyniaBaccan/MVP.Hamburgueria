@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledLoader = styled.div`
 border: .5rem solid #f3f3f3; 
-  border-top: 8px solid var(--color-primary);
+  border-top: .5rem solid var(--color-primary);
   border-radius: 50%;
   width: 3.75rem;
   height: 3.75rem;
@@ -60,7 +60,7 @@ export const StyledProduct = styled.li`
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.5rem;
-  color: #333333;
+  color: var(--color-grey-600);
 }
 
 .product__category {
@@ -68,7 +68,7 @@ export const StyledProduct = styled.li`
   font-weight: 400;
   font-size: .75rem;
   line-height: 1rem;
-  color: #828282;
+  color: var(--color-grey-300);
 }
 
 .product__price {
@@ -102,7 +102,7 @@ export const StyledProduct = styled.li`
 
 .product__button:hover {
   background: var(--color-primary);
-  color: #ffff;
+  color: #FFFFFF;
   border: .125rem solid var(--color-primary);
 }
 `

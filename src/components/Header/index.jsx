@@ -13,17 +13,19 @@ export const Header = ({ setInputSearch, setIsOpen }) => {
 
     return (
         <StyledHeader>
-            <div className='div__logo'>
-                <img src={Logo} alt="Logo da Hamburgueria da Kenzie" />
-                <img onClick={() => setIsOpen("true")} src={Cart} alt="Carrinho de compras cinza" />
+            <div className='header__container'>
+                <div className='div__logo'>
+                    <img src={Logo} alt="Logo da Hamburgueria da Kenzie" />
+                    <img className='img__cart' onClick={() => setIsOpen("true")} src={Cart} alt="Carrinho de compras cinza" />
+                </div>
+                <StyledForm onSubmit={handleSubmit}>
+                    <StyledSearchInput type='text'
+                        placeholder='Digitar pesquisa'
+                        onChange={(event) => setInputSearch(event.target.value)}
+                    />
+                    <button type='submit'><img src={Search} /></button>
+                </StyledForm>
             </div>
-            <StyledForm onSubmit={handleSubmit}>
-                <StyledSearchInput type='text'
-                    placeholder='Digitar pesquisa'
-                    onChange={(event) => setInputSearch(event.target.value)}
-                />
-                <button type='submit'><img src={Search} /></button>
-            </StyledForm>
         </StyledHeader>
     )
 }

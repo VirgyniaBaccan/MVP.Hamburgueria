@@ -6,7 +6,7 @@ export const StyledProduct = styled.li`
     justify-content: space-between;
     width: 100%;
     height: 5rem;
-    gap: 8px;
+    gap: .5rem;
 `
 export const StyledDiv = styled.div`
     display: flex;
@@ -14,13 +14,13 @@ export const StyledDiv = styled.div`
     align-items: center;
     width: 5rem;
     height: 4rem;
-    background: #E0E0E0;
-    border-radius: 5px;
+    background: var(--color-grey-100);
+    border-radius: .3125rem;
 `
 export const StyledImage = styled.img`
     width: 3.4375rem;
     height: 3rem;
-    background: #E0E0E0;
+    background: var(--color-grey-100);
 `
 export const StyledProductDiv = styled.div`
     display: flex;
@@ -32,13 +32,13 @@ export const StyledProductDiv = styled.div`
     .product__name {
         display: flex;
         font-weight: 700;
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 100%;
-        color: #333333;
+        color: var(--color-grey-600);
     }
 
     .button__deleteProduct {
-        width: 12px;
-        height: 14px;
+        width: .75rem;
+        height: .875rem;
     }   
 `

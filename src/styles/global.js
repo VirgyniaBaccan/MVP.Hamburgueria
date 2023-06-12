@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 
 export const GlobalStyles = createGlobalStyle`
@@ -27,6 +27,13 @@ body {
 
 body, input, button, textarea {
 	font-family: 'Inter', sans-serif;
+}
+
+@media (min-width: 48rem) {
+	main {
+		display: flex;
+		justify-content: center;
+	}
 }
 `
 

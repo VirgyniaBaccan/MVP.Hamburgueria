@@ -15,7 +15,7 @@ export const StyledModal = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 30px;
+    gap: 1.875rem;
     width: 80%;
     max-width: 31.25rem;
     height: 25rem;
@@ -33,7 +33,7 @@ export const StyledModal = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 3.375rem;
-    background: #27AE60;
+    background: var(--color-primary);
     border-radius: .3125rem .3125rem 0rem 0rem;
 }
 
@@ -56,10 +56,9 @@ export const StyledModal = styled.div`
     gap: .3125rem;
     padding: 1rem;
     padding-top: 0rem;
-    /* align-items: center; */
     width: 100%;    
     height: 10rem;
-    margin-bottom: 1px solid #E0E0E0;
+    margin-bottom: .0625rem solid var(--color-grey-100);
     overflow-y: auto;
 }
 `

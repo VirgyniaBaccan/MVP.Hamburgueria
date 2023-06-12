@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { StyledLoader, StyledProduct } from "./styles"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export const Product = ({ filteredProducts, setProducts, cartList, setListCart }) => {
@@ -32,11 +34,10 @@ export const Product = ({ filteredProducts, setProducts, cartList, setListCart }
     const handleListCart = (product) => {
         const checkProduct = cartList.find((element) => element.id == product.id)
         if (checkProduct) {
-            alert('já existe')
+            toast.error('Este produto já foi adicionado ao carrinho')
         } else {
             setListCart((currentCartList) => [...currentCartList, product])
         }
-        // checkProduct ? alert('Já existe') : setCartList((cartList) => [...cartList, product])
     }
 
 
@@ -49,13 +50,14 @@ export const Product = ({ filteredProducts, setProducts, cartList, setListCart }
                     filteredProducts.map((product) =>
                         <StyledProduct key={product.id}>
                             <div className="div__img">
-                            <img src={product.img} />
+                                <img src={product.img} />
                             </div>
                             <div className="div__card">
-                            <h2 className="product__name">{product.name}</h2>
-                            <p className="product__category">{product.category}</p>
-                            <p className="product__price">{product.price.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})}</p>
-                            <button className="product__button" onClick={() => { handleListCart(product) }}>Adicionar</button>
+                                <h2 className="product__name">{product.name}</h2>
+                                <p className="product__category">{product.category}</p>
+                                <p className="product__price">{product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                                <button className="product__button" onClick={() => { handleListCart(product) }}>Adicionar</button>
+                                <ToastContainer />
                             </div>
                         </StyledProduct>)
             }

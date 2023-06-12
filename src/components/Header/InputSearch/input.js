@@ -6,11 +6,16 @@ export const StyledSearchInput = styled.input`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 10px 0px 15px;
+    padding: 0rem .625rem 0rem .9375rem;
 
     width: 100%;
-    height: 60px;
+    height: 3.75rem;
     background: #FFFFFF;
-    border: 2px solid #E0E0E0;
-    border-radius: 8px;
+    border: .125rem solid var(--color-grey-100);
+    border-radius: .5rem;
+
+    @media (min-width: 48rem) {
+        width: 100%;
+        height: 3.75rem;
+    }
 `
