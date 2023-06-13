@@ -56,4 +56,29 @@ export const StyledHeader = styled.header`
     }
 }
 `
+export const StyledDiv = styled.div`
 
+    display: flex;
+    position: relative;
+    margin-right: .625rem;
+
+    p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 1rem;
+    height: 1.125rem;
+    top: -46%;
+    right: 27%;
+    background: var(--color-primary);
+    color: #FFFF;
+    border-radius: .375rem;
+    padding: .4375rem;
+
+    font-style: normal;
+    font-weight: 900;
+    font-size: 0.775rem;
+    }
+    
+`

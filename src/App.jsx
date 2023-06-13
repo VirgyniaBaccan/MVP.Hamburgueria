@@ -10,7 +10,7 @@ export const App = () => {
   const [products, setProducts] = useState([])
   const [cartList, setListCart] = useState([])
   const [isOpen, setIsOpen] = useState(false);
-
+  const [count, setCount] = useState(0)
   const filteredProducts = products.filter(
     product => product.name.toUpperCase().includes(inputSearch.toUpperCase())
   )
@@ -19,10 +19,11 @@ export const App = () => {
     <>
       <GlobalReset />
       <GlobalStyles />
-      {isOpen ? <Modal cartList={cartList} setListCart={setListCart} setIsOpen={setIsOpen} /> : <></>}
-      <Header setInputSearch={setInputSearch} setIsOpen={setIsOpen} />
+      {isOpen ? <Modal cartList={cartList} setListCart={setListCart} setIsOpen={setIsOpen} setCount={setCount} />
+        : <></>}
+      <Header setInputSearch={setInputSearch} setIsOpen={setIsOpen} count={count} setCount={setCount} />
       <main>
-        <List filteredProducts={filteredProducts} setProducts={setProducts} cartList={cartList} setListCart={setListCart} />
+        <List filteredProducts={filteredProducts} setProducts={setProducts} cartList={cartList} setListCart={setListCart} count={count} setCount={setCount} />
       </main>
 
     </>

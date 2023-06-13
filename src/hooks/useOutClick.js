@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react"
 
-
 export const useOutCLick = (callback) => {
     const ref = useRef(null);
 
@@ -10,7 +9,6 @@ export const useOutCLick = (callback) => {
                 if (callback) callback();
             }
         }
-
         window.addEventListener("mousedown", handleOutclick);
 
         return () => {

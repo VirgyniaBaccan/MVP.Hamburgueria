@@ -4,11 +4,9 @@ import { StyledLoader, StyledProduct } from "./styles"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-export const Product = ({ filteredProducts, setProducts, cartList, setListCart }) => {
+export const Product = ({ filteredProducts, setProducts, cartList, setListCart, count, setCount }) => {
 
     const [isLoading, setIsLoading] = useState(true)
-
 
     useEffect(() => {
         const getProducts = async () => {
@@ -20,26 +18,21 @@ export const Product = ({ filteredProducts, setProducts, cartList, setListCart }
             } finally {
                 setIsLoading(false)
             }
-
         }
 
         getProducts()
 
     }, [])
 
-    useEffect(() => {
-        console.log(cartList)
-    }, [cartList])
-
     const handleListCart = (product) => {
         const checkProduct = cartList.find((element) => element.id == product.id)
         if (checkProduct) {
-            toast.error('Este produto já foi adicionado ao carrinho')
+            toast.error('Este produto já foi adicionado ao carrinho', { autoClose: 1000 })
         } else {
             setListCart((currentCartList) => [...currentCartList, product])
+            setCount((currentCount) => currentCount +1)
         }
     }
-
 
     return (
         <>

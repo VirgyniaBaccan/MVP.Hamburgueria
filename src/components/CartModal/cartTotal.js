@@ -8,7 +8,6 @@ export const StyledBottonDiv = styled.div`
     height: 6.5rem;
     border-top: .125rem solid  var(--color-grey-100);
 `
-
 export const StyledTotalDiv = styled.div`
     display: flex;
     width: 100%;
@@ -17,17 +16,17 @@ export const StyledTotalDiv = styled.div`
     padding: 0.6rem;
 
     .cart__total {
-        font-weight: 600;
-        font-size: .875rem;
-        line-height: 1.5rem;
-        color:  var(--color-grey-600);
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    color:  var(--color-grey-600);
     }
 
     .cart__value {
-        font-weight: 600;
-        font-size: .875rem;
-        line-height: 1.5rem;
-        color: var(--color-grey-300);
+    font-weight: 600;
+    font-size: .875rem;
+    line-height: 1.5rem;
+    color: var(--color-grey-300);
     }
 `
     export const StyledCartButton = styled.button`
@@ -51,8 +50,8 @@ export const StyledTotalDiv = styled.div`
     color: var(--color-grey-300);
 
     :hover {
-        background: var(--color-primary);
-        color: #ffff;
-        border: .125rem solid var(--color-primary);
+    background: var(--color-primary);
+    color: #ffff;
+    border: .125rem solid var(--color-primary);
     }
     `

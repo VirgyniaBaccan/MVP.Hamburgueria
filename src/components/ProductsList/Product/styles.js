@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledLoader = styled.div`
-border: .5rem solid #f3f3f3; 
+  border: .5rem solid #f3f3f3; 
   border-top: .5rem solid var(--color-primary);
   border-radius: 50%;
   width: 3.75rem;
@@ -10,12 +10,13 @@ border: .5rem solid #f3f3f3;
   margin: 0 auto;
   margin-top: 30%;
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}`
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }`
 
 export const StyledProduct = styled.li`
+
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -29,56 +30,56 @@ export const StyledProduct = styled.li`
   border-radius: .3125rem;
 
   :hover {
-    border: .125rem solid var(--color-primary);
+  border: .125rem solid var(--color-primary);
   }
-  
-.div__img {
+
+  .div__img {
   display: flex;
   width: 100%;
   height: 50%;
   justify-content: center;
   background-color: #f5f5f5;
-}
+  }
 
-.div__img > img {
+  .div__img > img {
   display: flex;
   align-self: center;
   width: 9.75rem;
   height: 9.75rem;
   background-color: #f5f5f5;
-}
+  }
 
-.div__card {
+  .div__card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 50%;
   padding: 1rem;
-}
+  }
 
-.product__name {
+  .product__name {
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1.5rem;
   color: var(--color-grey-600);
-}
+  }
 
-.product__category {
+  .product__category {
   font-style: normal;
   font-weight: 400;
   font-size: .75rem;
   line-height: 1rem;
   color: var(--color-grey-300);
-}
+  }
 
-.product__price {
+  .product__price {
   font-weight: 600;
   font-size: .875rem;
   line-height: 1.5rem;
   color: var(--color-primary);
-}
+  }
 
-.product__button {
+  .product__button {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -98,11 +99,11 @@ export const StyledProduct = styled.li`
   color: #FFFFFF;
 
   letter-spacing: .05rem;
-}
+  }
 
-.product__button:hover {
+  .product__button:hover {
   background: var(--color-primary);
   color: #FFFFFF;
   border: .125rem solid var(--color-primary);
-}
-`
+  }
+  `

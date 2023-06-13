@@ -9,9 +9,8 @@ export const useKeyDown = (keyId, callback) => {
                 if (callback) callback(ref.current);
             }
         }
-
         window.addEventListener("keydown", handleKeydown);
-
+        
         return () => {
             window.removeEventListener("keydown", handleKeydown);
         }

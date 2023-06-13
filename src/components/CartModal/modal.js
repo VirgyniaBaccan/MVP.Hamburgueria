@@ -10,6 +10,18 @@ export const StyledModal = styled.div`
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 
+.cart__empty-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    font-weight: 900;
+    font-size: 20px;
+
+}
+
 .modal {
     display: flex;
     flex-direction: column;
@@ -53,6 +65,7 @@ export const StyledModal = styled.div`
 .cart__list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: .3125rem;
     padding: 1rem;
     padding-top: 0rem;
